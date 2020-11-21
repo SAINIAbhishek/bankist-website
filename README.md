@@ -6,3 +6,4 @@ It's a course project. 'The Complete JavaScript Course 2020: From Zero to Expert
 
 - Creation of Element dynamically -- cookie message.
 - Scroll to section
+- Page navigation - event delegation

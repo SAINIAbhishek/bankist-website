@@ -1,7 +1,6 @@
 'use strict';
 
 ///////////////////////////////////////
-// Modal window
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -10,6 +9,7 @@ const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const header = document.querySelector('.header');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const navLinks = document.querySelector('.nav__links');
 
 const openModal = function (event) {
     event.preventDefault();
@@ -58,4 +58,15 @@ btnScrollTo.addEventListener('click', function (e) {
 
     // another way
     section1.scrollIntoView({behavior: 'smooth'});
+});
+
+// page navigation
+navLinks.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (e.target && e.target['classList']['contains']('nav__link')) {
+        const id = e.target['getAttribute']('href');
+        if (id) {
+            document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+        }
+    }
 });
