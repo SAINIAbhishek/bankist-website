@@ -8,6 +8,8 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const header = document.querySelector('.header');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 const openModal = function (event) {
     event.preventDefault();
@@ -39,7 +41,21 @@ message.innerHTML = 'We use cookies to improve functionality and analytics. ' +
 header.before(message);
 message.style.backgroundColor = '#37383d';
 message.style.width = '120%';
-message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+message.style.height = Number.parseFloat(getComputedStyle(message).height) + 30 + 'px';
 document.querySelector('.btn--close-cookie').addEventListener('click', function () {
    message.remove();
+});
+
+// scroll to section
+btnScrollTo.addEventListener('click', function (e) {
+    // first method
+    /*const s1cords = section1.getBoundingClientRect();
+    window.scrollTo({
+        left: s1cords.left + window.pageXOffset,
+        top: s1cords.top + window.pageYOffset,
+        behavior: 'smooth'
+    });*/
+
+    // another way
+    section1.scrollIntoView({behavior: 'smooth'});
 });
