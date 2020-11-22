@@ -105,3 +105,22 @@ const navHover = function (e) {
 // bind will return a new function, passing "argument" into handler
 nav.addEventListener('mouseover', navHover.bind(0.5));
 nav.addEventListener('mouseout', navHover.bind(1));
+
+// navigation sticky
+const navHeight = nav.getBoundingClientRect().height;
+const headerObserver = new IntersectionObserver(function(entries) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) {
+        message.style.display = 'none';
+        nav.classList.add('sticky');
+    } else {
+        nav.classList.remove('sticky');
+        message.style.display = 'flex';
+    }
+}, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${navHeight}px`
+});
+
+headerObserver.observe(header);

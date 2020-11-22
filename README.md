@@ -8,3 +8,4 @@ It's a course project. 'The Complete JavaScript Course 2020: From Zero to Expert
 - Scroll to section
 - Page navigation - event delegation
 - Tabbed component  
+- Sticky navigation - Intersection Observer API
