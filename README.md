@@ -11,3 +11,4 @@ It's a course project. 'The Complete JavaScript Course 2020: From Zero to Expert
 - Sticky navigation - Intersection Observer API
 - Scroll effect - Intersection Observer API
 - Lazy loading images - Intersection Observer API
+- Slider
