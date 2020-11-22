@@ -13,6 +13,7 @@ const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent= document.querySelectorAll('.operations__content');
 const nav = document.querySelector('.nav');
+const allSections = document.querySelectorAll('.section');
 
 const openModal = function (event) {
     event.preventDefault();
@@ -124,3 +125,21 @@ const headerObserver = new IntersectionObserver(function(entries) {
 });
 
 headerObserver.observe(header);
+
+// scroll effect
+const revealSection = function(entries, observer) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection,{
+    root: null,
+    threshold: 0.15
+});
+
+allSections.forEach((section) => {
+    sectionObserver.observe(section);
+    section.classList.add('section--hidden');
+});
